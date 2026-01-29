@@ -1,0 +1,25 @@
+How to run the shell file?
+
+Even Spaces matter in shell scripting. There should be a single space between the brackets and variables too.. so keep that in mind.
+
+The Shell Scropt need not be in sh file. It can be directly written line by line in the shell and run too.
+
+But in my opinion typing in some text editor first and then copy pasting the content to the shell file is better
+
+Typing file directly in shell
+Use nano filename.sh or cat > filename.sh
+Or simply create a file using touch filename.sh
+
+nano and cat > are the two ways. in my opinion the nano is best...
+Copy the contents of the VScode and right click in the shell, then only it will get pasted. otherwise it wont get pasted.
+
+To save a file in cat use Ctrl+D shortcut but in nano saving file is Ctrl+O.. so keep these in mind.
+
+Now to run the sh file.. two ways:
+1. ./filename.sh
+2. bash filename.sh
+
+Note: simply filename.sh wont work. Another thing is that you want to change the permission of the file for execution.
+You have to use the below command for enabling execution
+
+chmod 777 filename.sh or chmod a+rwx filename.sh
