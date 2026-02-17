@@ -1,0 +1,27 @@
+SELECT country_name FROM countries;
+
+SELECT first_name,email,phone_number FROM employees;
+
+SELECT * FROM employees WHERE last_name='Fay';
+
+SELECT hire_date FROM employees WHERE last_name='Grant' OR last_name='Whalen';
+
+SELECT * FROM employees WHERE job_id IN (SELECT job_id FROM jobs WHERE job_title='Shipping Clerk');
+
+SELECT first_name FROM employees WHERE department_id=8;
+
+SELECT * FROM departments ORDER BY department_id DESC;
+
+SELECT * FROM employees WHERE last_name LIKE 'K%';
+
+SELECT first_name FROM employees WHERE hire_date BETWEEN '1995-01-01' AND '1997-01-01';
+
+SELECT * FROM jobs WHERE max_salary<5000;
+
+SELECT LOWER(email) FROM employees;
+
+SELECT first_name FROM employees WHERE hire_date BETWEEN '1995-01-01' AND '1995-12-31';
+
+INSERT INTO employees VALUES(120,'Paul','Newton','paulnewton@gmail.com','1112223334','2026-01-02',13,5000.00,100,11);
+
+DELETE FROM departments WHERE department_name="Shipping";
