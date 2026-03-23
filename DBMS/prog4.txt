@@ -1,0 +1,19 @@
+CREATE DATABASE store;
+USE store;
+CREATE TABLE product (PdtId VARCHAR(50) PRIMARY KEY, PName VARCHAR(50), Price DECIMAL(7,2), Quantity INT);
+
+-- create stored procedure
+
+DELIMITER //
+CREATE PROCEDURE InsertProduct(IN p_bcode VARCHAR(50), IN p_name VARCHAR(50), IN p_price DECIMAL(7,2), IN p_qty INT)
+BEGIN
+	IF p_price>0 AND p_qty>=0 THEN 
+    INSERT INTO product VALUES(p_bcode,p_name,p_price,p_qty);
+    END IF;
+END //
+DELIMITER ;
+
+-- Testing some values by calling the stored procedure
+
+CALL InsertProduct('P001','Apple Watch',70000.00,2);
+CALL InsertProduct('P002','Apple iPhone',0.00,-1);
