@@ -122,7 +122,12 @@ JOIN course ON course.course_number=section.course_number
 WHERE student.major='CS' AND student.class=2;
 
 
+-- Some Data Manipulations
 
+INSERT INTO student VALUES('Johnson',25,1,'Math');
+UPDATE student SET class=2 WHERE name='Smith';
+INSERT INTO course VALUES('Knowledge Engineering','CS4390',3,'CS');
+DELETE FROM student WHERE name='Smith' AND student_number=17;
 
 
 
