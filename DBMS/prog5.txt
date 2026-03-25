@@ -1,0 +1,51 @@
+-- Database and Table creation
+
+CREATE DATABASE sales;
+USE sales;
+
+CREATE TABLE Product (
+    PdtId INT PRIMARY KEY,
+    Pname VARCHAR(100),
+    Price DECIMAL(10, 2), 
+    Qtyinstock INT
+);
+
+CREATE TABLE Sale (
+    saleId INT PRIMARY KEY,
+    Deliveryaddress VARCHAR(255)
+);
+
+CREATE TABLE Saleitem (
+    saleId INT,
+    PdtId INT,
+    Qty INT,
+    PRIMARY KEY (saleId, PdtId),
+    FOREIGN KEY (saleId) REFERENCES Sale(saleId),
+    FOREIGN KEY (PdtId) REFERENCES Product(PdtId)
+);
+
+
+-- Creating a Trigger
+
+
+DELIMITER //
+CREATE TRIGGER updateAvailableQuantity
+AFTER INSERT ON SaleItem
+FOR EACH ROW
+BEGIN
+	UPDATE Product
+    SET QtyinStock=QtyinStock-NEW.Qty
+    WHERE PdtId=NEW.PdtId;
+END //
+DELIMITER ;
+
+
+-- Checking with some insertion 
+
+INSERT INTO product VALUES(1,'Mouse',200,10);
+INSERT INTO sale VALUES(1,'Kochi');
+INSERT INTO saleitem VALUES(1,1,5);
+
+SELECT * FROM Product;
+
+SHOW TRIGGERS;
