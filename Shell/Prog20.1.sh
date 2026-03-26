@@ -1,0 +1,9 @@
+#!/bin/bash
+# File Handling (Creating myfile)
+
+echo "1001 RAM 97" >> myfile
+echo "1002 NEHA 89" >> myfile
+echo "1010 DIVYA 77" >> myfile
+echo "1025 RAHUL 65" >> myfile
+echo "1012 ARUN 99" >> myfile
+echo "1013 NISHA 76" >> myfile
